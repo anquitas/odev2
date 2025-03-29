@@ -55,11 +55,20 @@ class _ScreenState extends State<Screen> {
   // F: mutation for name value
   void updateName (String newName)  {
     person.setInfo(newName);
+    setState(() {
+      activeScreen='home-screen';
+    });
+  }
+  void updateAge (String newAge)  {
+    person.setAge(int.parse(newAge));
+    setState(() {
+      activeScreen='home-screen';
+    });
   }
   
-  void switchToUpdate() {
+  void switchToUpdate(String text) {
     setState(() {
-      activeScreen='update-screen';
+      activeScreen=text;
     });
   }
 
@@ -70,9 +79,12 @@ class _ScreenState extends State<Screen> {
     decoration: BoxDecoration(color: Color.fromARGB(144, 130, 187, 213)),
     // child: HomeScreen()
     child: activeScreen == 'home-screen' ? 
-      HomeScreen(onUpdate: switchToUpdate,) : 
+      HomeScreen(onUpdate: switchToUpdate, person: person,) : 
+      activeScreen == 'name-update' ?
       UpdateScreen(
         updateObject: UpdateObject(name: 'name', defaultValue: personName(), onClick: updateName),
+      ): UpdateScreen(
+        updateObject: UpdateObject(name: 'age', defaultValue: personAge(), onClick: updateAge),
       ),
   );
 }
