@@ -1,15 +1,16 @@
 import 'package:flutter/widgets.dart';
-import 'package:odev2/components/info_display.dart';
+import 'package:odev2/components/info_component.dart';
 import 'package:odev2/models/person.dart';
 
 class HomeScreen extends StatelessWidget {
   // CONSTRUCTOR --- --- ---
-  HomeScreen({super.key});
+  HomeScreen({required this.onUpdate, super.key});
 
   // dependency injection, functions that effects upper statefull widget that ll be triggered inside this screenS
 
   // ## PROPS
   final Person person = Person(name: 'daniel', lastName: 'jackson', age: 45);
+  final void Function () onUpdate;
 
   // ## METHODS
   @override
@@ -25,8 +26,8 @@ class HomeScreen extends StatelessWidget {
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
       Image.asset('assets/images/wp.png'),
-      InfoDisplay(type:'info', person: person,),
-      InfoDisplay(type:'age', person: person,)
+      InfoDisplay(onUpdate: onUpdate, type: InfoDisplayType.info, person: person,),
+      InfoDisplay(onUpdate: onUpdate, type:InfoDisplayType.age, person: person,)
     ],
   );
 }
