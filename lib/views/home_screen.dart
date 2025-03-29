@@ -4,16 +4,25 @@ import 'package:odev2/models/person.dart';
 
 class HomeScreen extends StatelessWidget {
   // CONSTRUCTOR --- --- ---
-  HomeScreen({required this.onUpdate, super.key});
+  HomeScreen({required this.onUpdate, required this.person, super.key});
 
   // dependency injection, functions that effects upper statefull widget that ll be triggered inside this screenS
 
   // ## PROPS
-  final Person person = Person(name: 'daniel', lastName: 'jackson', age: 45);
-  final void Function () onUpdate;
+  final Person person;
+  final void Function (String) onUpdate;
 
   // ## METHODS
+  void onUpdateName() {
+    onUpdate('name-update');
+  }
+
+  void onUpdateAge() {
+    onUpdate('age-update');
+  }
+
   @override
+
   Widget build(BuildContext context) => Container(
     width: double.infinity,
     child: Column(
@@ -31,7 +40,4 @@ class HomeScreen extends StatelessWidget {
       ],
     ),
   );
-            
-    
-  
 }

@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:odev2/models/person.dart';
 
-enum InfoDisplayType { info, age }
 
 class InfoDisplay extends StatelessWidget {
   // ## CONSTRUCTOR
-  const InfoDisplay({required this.onUpdate ,required this.person, required this.type, super.key});
+  const InfoDisplay({required this.onUpdate ,required this.data, super.key});
 
   // ## PROPS --- --- ---
-  final Person person;
-  final InfoDisplayType type;
+
+  final String data;
   final void Function () onUpdate;
 
 
 
   // ## METHODS --- --- ---
   String getData () {
-    if (type == InfoDisplayType.info) return person.getInfo();
-    if (type == InfoDisplayType.age) return person.getAge();
-    return 'null';
+    return data;
   }
 
   @override
