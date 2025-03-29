@@ -21,9 +21,10 @@ class UpdateScreen extends StatelessWidget {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Text(
-        'deneme',
+        'Güncelleme',
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
+      SizedBox(height: 40),
       // UpdateDisplay(name: 'name', defaultValue: 'samantha', onClick: (){ print('böööö');},)
       UpdateDisplay.fromObject(updateObject: updateObject),
     ],
