@@ -26,16 +26,16 @@ class HomeScreen extends StatelessWidget {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Text(
-        'deneme',
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        'Hoşgeldiniz',
+        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
       ),
-      Text(
-        'dene',
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-      ),
+     
       Image.asset('assets/images/wp.png'),
       InfoDisplay(onUpdate: onUpdateName, data: person.name,),
       InfoDisplay(onUpdate: onUpdateAge, data: person.getAge(),)
     ],
   );
+            
+    
+  
 }

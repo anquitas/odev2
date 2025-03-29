@@ -30,13 +30,22 @@ class UpdateDisplay extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Column(
-    children: [
-      TextField(
-        controller: _controller,
-        decoration: InputDecoration(labelText: name),
-      ),
-      OutlinedButton(onPressed: onPressed, child: Text('update')),
-    ],
-  );
+  Widget build(BuildContext context) => Center(
+  child: SizedBox(
+    width: 260, 
+    child: Column(
+      mainAxisSize: MainAxisSize.min, 
+      children: [
+        TextField(
+          controller: _controller,
+          decoration: InputDecoration(labelText: name),
+        ),
+        SizedBox(height: 40),
+        OutlinedButton(onPressed: onPressed, child: Text('update')),
+      ],
+    ),
+  ),
+);
+
+  
 }
