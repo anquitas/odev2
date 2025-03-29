@@ -25,7 +25,7 @@ class InfoDisplay extends StatelessWidget {
   child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      Text(getData()),
+      Text(getData(),style: TextStyle(fontSize: 20),  ),
       OutlinedButton(
         onPressed: onUpdate,
         child: Text('update'),

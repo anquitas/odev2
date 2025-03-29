@@ -22,20 +22,22 @@ class HomeScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        'Hoşgeldiniz',
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-      ),
-     
-      Image.asset('assets/images/wp.png'),
-      InfoDisplay(onUpdate: onUpdateName, data: person.name,),
-      InfoDisplay(onUpdate: onUpdateAge, data: person.getAge(),)
-    ],
+
+  Widget build(BuildContext context) => Container(
+    width: double.infinity,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'Hoşgeldiniz',
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 40),
+        Image.asset('assets/images/kullanici.png',width: 200,height: 200,),
+        SizedBox(height: 40,),
+        InfoDisplay(onUpdate: onUpdate, type: InfoDisplayType.info, person: person,),      
+        InfoDisplay(onUpdate: onUpdate, type:InfoDisplayType.age, person: person,)
+      ],
+    ),
   );
-            
-    
-  
 }
