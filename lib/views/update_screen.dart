@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:odev2/components/update_component.dart';
-import 'package:odev2/screen.dart';
+import 'package:odev2/screen_view.dart';
 
 class UpdateScreen extends StatelessWidget {
   // CONSTRUCTOR --- --- ---

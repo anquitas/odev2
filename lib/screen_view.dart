@@ -1,6 +1,10 @@
+
+
+import 'package:flutter/material.dart';
 import 'package:odev2/models/person.dart';
 import 'package:odev2/views/home_screen.dart';
 import 'package:odev2/views/update_screen.dart';
+
 
 class Screen extends StatefulWidget {
   // ## CONSTRUCTOR --- --- ---
@@ -67,7 +71,9 @@ class _ScreenState extends State<Screen> {
     // child: HomeScreen()
     child: activeScreen == 'home-screen' ? 
       HomeScreen(onUpdate: switchToUpdate,) : 
-      UpdateScreen(),
+      UpdateScreen(
+        updateObject: UpdateObject(name: 'name', defaultValue: personName(), onClick: updateName),
+      ),
   );
 }
 

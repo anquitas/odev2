@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:odev2/Screen.dart';
+import 'package:odev2/screen_view.dart';
 
 class UpdateDisplay extends StatelessWidget {
   // ## CONSTRUTORS --- --- ---
-  UpdateDisplay({ // i could not make it const
+  UpdateDisplay({
     required this.name,
     required String defaultValue,
     required this.onClick,
     super.key,
-  }): _controller = TextEditingController(text: defaultValue);
-  
+  }) : _controller = TextEditingController(text: defaultValue);
+  // i could not make it const
+
   UpdateDisplay.fromObject({required UpdateObject updateObject, super.key})
-      : 
-      name = updateObject.name,
+    : name = updateObject.name,
       onClick = updateObject.onClick,
       _controller = TextEditingController(text: updateObject.defaultValue);
   // constructor that ll work w a compact object for convinience
@@ -23,8 +23,11 @@ class UpdateDisplay extends StatelessWidget {
   final void Function(String) onClick;
   final TextEditingController _controller;
 
-
   // ## METHODS --- --- ---
+
+  void onPressed () {
+    onClick(_controller.text);
+  }
 
   @override
   Widget build(BuildContext context) => Column(
@@ -33,7 +36,7 @@ class UpdateDisplay extends StatelessWidget {
         controller: _controller,
         decoration: InputDecoration(labelText: name),
       ),
-      OutlinedButton(onPressed: onClick, child: Text('update')),
+      OutlinedButton(onPressed: onPressed, child: Text('update')),
     ],
   );
 }
