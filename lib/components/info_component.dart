@@ -23,16 +23,18 @@ class InfoDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(getData()),
-        SizedBox(width: 20,),
-        OutlinedButton(
-          onPressed: onUpdate,
-          child: Text('update'), 
-          ),
-      ],
-    ),
+ child: SizedBox(
+  width: 250, 
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(getData()),
+      OutlinedButton(
+        onPressed: onUpdate,
+        child: Text('update'),
+      ),
+    ],
+  ),
+),
   );
 }
